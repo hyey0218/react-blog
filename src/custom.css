@@ -1,4 +1,7 @@
 /* Provide sufficient contrast against white background */
+* {
+  font-family: bmdoh;
+}
 a {
   color: #0366d6;
 }
@@ -11,4 +14,12 @@ code {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+@font-face {
+  font-family: "bmjua";
+  src: url("./static/font/BMJUA_ttf.ttf"); 
+}
+@font-face {
+  font-family: "bmdoh";
+  src: url("./static/font/BMDOHYEON_ttf.ttf"); 
 }

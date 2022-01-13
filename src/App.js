@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import { Route } from 'react-router';
 import { Layout } from './components/Layout';
 import { Home } from './components/Home';
-import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
+import { Profile } from './components/menu/Profile';
+import { History } from './components/menu/History';
+import { Review } from './components/menu/Review';
+import { Dev } from './components/menu/Dev';
 
 import './custom.css'
-
-import { BooksIndex } from './components/Books/BooksIndex';
-import { BooksCreate } from './components/Books/BooksCreate';
-import { BooksEdit } from './components/Books/BooksEdit';
-import { BooksDelete } from './components/Books/BooksDelete';
 
 export default class App extends Component {
     static displayName = App.name;
@@ -19,12 +16,10 @@ export default class App extends Component {
         return (
             <Layout>
                 <Route exact path='/' component={Home} />
-                <Route path='/counter' component={Counter} />
-                <Route path='/fetch-data' component={FetchData} />
-                <Route path={['/Books', '/Books/Index']} component={BooksIndex} exact />
-                <Route path='/Books/Create' component={BooksCreate} exact={true} />
-                <Route path='/Books/Edit/:id' component={BooksEdit} exact />
-                <Route path='/Books/Delete/:id' component={BooksDelete} exact />
+                <Route path='/Profile' component={Profile} />
+                <Route path='/History' component={History} />
+                <Route path='/Review' component={Review}  />
+                <Route path='/Dev' component={Dev}  />
             </Layout>
         );
     }
