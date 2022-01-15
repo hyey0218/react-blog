@@ -6,7 +6,7 @@ export class History extends Component {
     return (
       <div>
         <h1>History</h1>
-        <p>Wait...</p>
+        <p>Wait...테스트중</p>
       </div>
     );
   }
