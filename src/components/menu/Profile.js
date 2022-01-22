@@ -1,29 +1,67 @@
 import React, { Component } from 'react';
-import { Container, Col, Row } from 'react-bootstrap';
+import { Container, Col, Row, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { ProfileCompany } from '../Cards/ProfileCompany';
+import { ProfileLic } from '../Cards/ProfileLic';
+import { ProfileSchool } from '../Cards/ProfileSchool';
+import { ProfileTech } from '../Cards/ProfileTech';
 
+const txtStyle = {
+  fontFamily : 'bmjua'
+}
+const imgStyle = {
+  width : '200px',
+  display: 'block',
+  margin: 'auto'
+}
 export class Profile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { leftMenu : <ProfileSchool/> };
+  }
+  changeLeftMenu(v){
+    if(v === 0){
+      this.setState({leftMenu: <ProfileSchool/>});
+    }else if(v === 1){
+      this.setState({leftMenu: <ProfileCompany/>});
+    }else if(v === 2){
+      this.setState({leftMenu: <ProfileTech/>});
+    }else if(v === 3){
+      this.setState({leftMenu: <ProfileLic/>});
+    }else{
+      this.setState({leftMenu: <></>});
+    }
+  }
 
   render () {
     return (
-      <div>
+      <Container>
         <h1>Profile</h1>
-        <Container>
-            <Row>
-            <Col sm={3} style={{ borderRight: "1px solid #ababab"}} >Extending or replacing the default ESLint config
-You can extend our base ESLint config, or replace it completely if you need.
+        <Row>
+          <Col sm={3} >
+            <Card style={{ width: '18rem' }}>
+              <Card.Img variant="top" className="justify-content-md-center" 
+                  style={imgStyle} src={process.env.PUBLIC_URL + '/img/image1.jpg'} />
+              <Card.Body>
+                <Card.Title>HYE YOON</Card.Title>
+                <Card.Text style={txtStyle} >
+                  MAIN : JAVA developer <br></br>
+                  SUB : SW Engineer (Search Engine & Text Analytics)
+                </Card.Text>
+              </Card.Body>
+              <ListGroup style={txtStyle} className="list-group-flush">
+                <ListGroupItem action onClick={() => this.changeLeftMenu(0) }>학력사항</ListGroupItem>
+                <ListGroupItem action onClick={() => this.changeLeftMenu(1) }>경력사항</ListGroupItem>
+                <ListGroupItem action onClick={() => this.changeLeftMenu(2) }>보유기술</ListGroupItem>
+                <ListGroupItem action onClick={() => this.changeLeftMenu(3) }>자격증/어학/수상</ListGroupItem>
+              </ListGroup>
+            </Card>
 
-There are a few things to remember:
-
-We highly recommend extending the base config, as removing it could introduce hard-to-find issues.
-When working with TypeScript, you'll need to provide an overrides object for rules that should only target TypeScript files.
-It's important to note that any rules that are set to "error" will stop the project from building.
-In the below example:</Col>            
-            <Col sm={9}>This feature is currently only supported by Visual Studio Code and WebStorm.
-
-Visual Studio Code and WebStorm support debugging out of the box with Create React App. This enables you as a developer to write and debug your React code without leaving the editor, and most importantly it enables you to have a continuous development workflow, where context switching is minimal, as you don’t have to switch between tools.</Col>    
-            </Row>
-        </Container>
-      </div>
+          </Col>
+          <Col sm={{ span: 8, offset: 1 }}>
+            {this.state.leftMenu}
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

@@ -7,7 +7,10 @@ import { History } from './components/menu/History';
 import { Review } from './components/menu/Review';
 import { Dev } from './components/menu/Dev';
 
-import './custom.css'
+import './css/custom.css'
+import { ProfileSchool } from './components/Cards/ProfileSchool';
+import './css/bootstrap.min.css';
+
 
 export default class App extends Component {
     static displayName = App.name;
@@ -20,6 +23,7 @@ export default class App extends Component {
                 <Route path='/History' component={History} />
                 <Route path='/Review' component={Review}  />
                 <Route path='/Dev' component={Dev}  />
+                <Route path='/Profile/ProfileSchool' component={ProfileSchool} />
             </Layout>
         );
     }
