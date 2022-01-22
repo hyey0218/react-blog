@@ -38,7 +38,7 @@ export class Profile extends Component {
         <h1>Profile</h1>
         <Row>
           <Col sm={3} >
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '100%' }}>
               <Card.Img variant="top" className="justify-content-md-center" 
                   style={imgStyle} src={process.env.PUBLIC_URL + '/img/image1.jpg'} />
               <Card.Body>
@@ -57,7 +57,7 @@ export class Profile extends Component {
             </Card>
 
           </Col>
-          <Col sm={{ span: 8, offset: 1 }}>
+          <Col sm={{ span: 8, offset: 1 }} style={{paddingTop: '40px'}}>
             {this.state.leftMenu}
           </Col>
         </Row>
